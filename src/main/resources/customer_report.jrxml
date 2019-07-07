@@ -2,6 +2,8 @@
 <!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="customer_report" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3bbcb193-b71d-401f-ac0e-776484b6ddb5">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="path" class="java.lang.String"/>
+	<parameter name="subreportName" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[SELECT id, firstName, lastName, age, accountNumber, operations FROM operations]]>
 	</queryString>
@@ -27,7 +29,7 @@
 						<subreportParameterExpression><![CDATA[($F{accountNumber} != null) ? $F{accountNumber} : "empty"]]></subreportParameterExpression>
 					</subreportParameter>
 					<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{operations})]]></dataSourceExpression>
-					<subreportExpression><![CDATA["/Users/michalkuchciak/IdeaProjects/demo-jasper-report/src/main/resources/Operation_report.jasper"]]></subreportExpression>
+					<subreportExpression><![CDATA[$P{path} + $P{subreportName}]]></subreportExpression>
 				</subreport>
 				<textField>
 					<reportElement x="0" y="0" width="208" height="20" uuid="4f1cb60e-1181-4baa-b1b6-cf305205fde4"/>

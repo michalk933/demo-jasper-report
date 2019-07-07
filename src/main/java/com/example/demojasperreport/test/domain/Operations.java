@@ -1,4 +1,4 @@
-package com.example.demojasperreport.test;
+package com.example.demojasperreport.test.domain;
 
 
 import lombok.AllArgsConstructor;
