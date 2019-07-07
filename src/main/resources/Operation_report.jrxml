@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Operation_report" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9b265481-3c23-4969-810b-cfdcce9b5f44">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="operationParam" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="amount" class="java.lang.String"/>
+	<field name="date" class="java.lang.String"/>
+	<field name="recipientName" class="java.lang.String"/>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="50" height="20" uuid="e5c96d96-286d-4fbd-936a-db945a39c9dd"/>
+				<box leftPadding="5"/>
+				<textFieldExpression><![CDATA["id: " + $F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="0" width="50" height="20" uuid="d707819a-c0bb-48cb-9cb8-778a2a26da4f"/>
+				<box leftPadding="10"/>
+				<textFieldExpression><![CDATA["Recipient: " + $F{recipientName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="0" width="50" height="20" uuid="d707819a-c0bb-48cb-9cb8-778a2a26da4f"/>
+				<box leftPadding="10"/>
+				<textFieldExpression><![CDATA["Amount: " + $F{amount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="0" width="50" height="20" uuid="d707819a-c0bb-48cb-9cb8-778a2a26da4f"/>
+				<box leftPadding="10"/>
+				<textFieldExpression><![CDATA["Date: " + $F{date}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

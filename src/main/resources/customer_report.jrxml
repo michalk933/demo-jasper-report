@@ -3,13 +3,14 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="customer_report" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3bbcb193-b71d-401f-ac0e-776484b6ddb5">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<queryString>
-		<![CDATA[]]>
+		<![CDATA[SELECT id, firstName, lastName, age, accountNumber, operations FROM operations]]>
 	</queryString>
 	<field name="id" class="java.lang.Integer"/>
 	<field name="firstName" class="java.lang.String"/>
 	<field name="lastName" class="java.lang.String"/>
 	<field name="age" class="java.lang.Integer"/>
 	<field name="accountNumber" class="java.lang.String"/>
+	<field name="operations" class="java.util.List"/>
 	<detail>
 		<band height="57" splitType="Stretch">
 			<frame>
@@ -20,6 +21,14 @@
 					<bottomPen lineWidth="1.0"/>
 					<rightPen lineWidth="1.0"/>
 				</box>
+				<subreport>
+					<reportElement x="0" y="32" width="523" height="17" uuid="de6cae64-9908-4aa7-ab37-ba44704be322"/>
+					<subreportParameter name="operationParam">
+						<subreportParameterExpression><![CDATA[($F{accountNumber} != null) ? $F{accountNumber} : "empty"]]></subreportParameterExpression>
+					</subreportParameter>
+					<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{operations})]]></dataSourceExpression>
+					<subreportExpression><![CDATA["/Users/michalkuchciak/IdeaProjects/demo-jasper-report/src/main/resources/Operation_report.jasper"]]></subreportExpression>
+				</subreport>
 				<textField>
 					<reportElement x="0" y="0" width="208" height="20" uuid="4f1cb60e-1181-4baa-b1b6-cf305205fde4"/>
 					<box leftPadding="10"/>
@@ -37,7 +46,7 @@
 					<textFieldExpression><![CDATA["Lastname: " + $F{lastName}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="250" y="0" width="100" height="20" uuid="d3833afd-46d7-4cb3-9e13-67c00d98add8"/>
+					<reportElement x="280" y="0" width="100" height="20" uuid="d3833afd-46d7-4cb3-9e13-67c00d98add8"/>
 					<box leftPadding="10"/>
 					<textElement>
 						<font isBold="true"/>
